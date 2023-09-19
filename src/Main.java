@@ -10,6 +10,10 @@ public class Main {
         System.out.println(isPerfectNumber(5));
         System.out.println(isPerfectNumber(-1));
         System.out.println("**********");
+        System.out.println("Mükemmel Sayıları Bulma:");
+        System.out.println(numberToWords(123));
+        System.out.println(numberToWords(1010));
+        System.out.println(numberToWords(-12));
     }
 
     public static boolean isPalindrome(int number) {
@@ -33,5 +37,17 @@ public class Main {
             if (number % i == 0) sum += i;
         }
         return number == sum;
+    }
+
+    public static String numberToWords(int number) {
+        if (number < 0) return "Invalid Value";
+        String[] digitStrings = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        char[] numberAsChars = String.valueOf(number).toCharArray();
+        String word = "";
+
+        for (char digitChar: numberAsChars) {
+            word += digitStrings[Integer.parseInt(String.valueOf(digitChar))] + " ";
+        }
+        return word.trim();
     }
 }
